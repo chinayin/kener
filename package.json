@@ -1,6 +1,6 @@
 {
     "name": "kener",
-    "version": "0.0.7",
+    "version": "1.0.0",
     "private": false,
     "license": "MIT",
     "description": "Kener: An open-source Node.js status page application for real-time service monitoring, incident management, and customizable reporting. Simplify service outage tracking, enhance incident communication, and ensure a seamless user experience.",
@@ -27,12 +27,11 @@
         "url": "https://github.com/rajnandan1/kener.git"
     },
     "scripts": {
-        "build": "node scripts/check.js && vite build",
-        "serve": "node prod.js",
-        "kener:dev": "cross-env NODE_ENV=development PUBLIC_KENER_FOLDER=./static/kener node scripts/check.js && concurrently \"cross-env NODE_ENV=development PUBLIC_KENER_FOLDER=./static/kener node dev.js\" \"cross-env NODE_ENV=development PUBLIC_KENER_FOLDER=./static/kener vite dev\"",
-        "kener:dev-monitor": "cross-env NODE_ENV=development PUBLIC_KENER_FOLDER=./static/kener  node dev.js",
-        "kener:build": "cross-env NODE_ENV=production node scripts/check.js && cross-env NODE_ENV=production vite build",
-        "kener": "cross-env NODE_ENV=production node prod.js"
+        "dev": "node -r dotenv/config scripts/check.js && concurrently \"node -r dotenv/config dev.js\" \"node -r dotenv/config ./node_modules/.bin/vite dev\"",
+        "dev-monitor": "node -r dotenv/config dev.js",
+        "dev-serve": "node -r dotenv/config ./node_modules/.bin/vite dev",
+        "build": "cross-env NODE_ENV=production node -r dotenv/config scripts/check.js && cross-env NODE_ENV=production node -r dotenv/config ./node_modules/.bin/vite build",
+        "serve": "cross-env NODE_ENV=production node -r dotenv/config prod.js"
     },
     "devDependencies": {
         "@sveltejs/adapter-auto": "^2.0.0",
@@ -57,6 +56,7 @@
         "bits-ui": "^0.9.9",
         "clsx": "^2.0.0",
         "croner": "^7.0.5",
+        "dotenv": "^16.4.5",
         "express": "^4.18.2",
         "fs-extra": "^11.1.1",
         "js-yaml": "^4.1.0",

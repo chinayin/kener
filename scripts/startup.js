@@ -113,7 +113,7 @@ const Startup = async () => {
                 monitors[i].api.eval = defaultEval;
             } else {
                 let evalResp = eval(evaluator + `(200, 1000, "e30=")`);
-				
+
                 if (evalResp === undefined || evalResp === null || evalResp.status === undefined || evalResp.status === null || evalResp.latency === undefined || evalResp.latency === null) {
                     console.log("eval is not valid ");
                     process.exit(1);
@@ -145,7 +145,7 @@ const Startup = async () => {
             //call the it to see if recevied content-type is text/html
             //if yes, append to description
             if ((headers === undefined || headers === null) && url !== undefined && method === "GET") {
-                
+
                 try {
                     const response = await axios({
                         method: "GET",
@@ -155,11 +155,11 @@ const Startup = async () => {
                     if (response.headers["content-type"].includes("text/html")) {
 						let link = `<a href="${url}" class="font-medium underline underline-offset-4" target="_blank">${url}</a>`;
 						if(monitors[i].description === undefined) {
-							monitors[i].description = link; 
+							monitors[i].description = link;
 						} else {
-							monitors[i].description = monitors[i].description?.trim() + " " + link; 
+							monitors[i].description = monitors[i].description?.trim() + " " + link;
 						}
-                        
+
                     }
                 } catch (error) {
                     console.log(error);
@@ -294,7 +294,7 @@ const Startup = async () => {
             protect: true,
         }
     );
-	
+
 };
 
 export { Startup };

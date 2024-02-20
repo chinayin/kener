@@ -13,3 +13,6 @@ config/site.yaml
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 nodemon.json
+data
+build
+.idea

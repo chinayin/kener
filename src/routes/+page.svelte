@@ -8,7 +8,7 @@
     let hasActiveIncidents = data.openIncidents.length > 0;
 </script>
 
-<div class="mt-32"></div>
+<div class="mt-6"></div>
 {#if data.site.hero}
 <section class="mx-auto mb-8 flex w-full max-w-4xl flex-1 flex-col items-start justify-center">
     <div class="mx-auto max-w-screen-xl px-4 lg:flex lg:items-center">
